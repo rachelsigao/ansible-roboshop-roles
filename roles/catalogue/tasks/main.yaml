@@ -18,6 +18,11 @@
     name: mongodb-mongosh
     state: present
 
+- name: install mongodb server
+  ansible.builtin.dnf:
+    name: mongodb-org
+    state: present    
+
 - name: check products loaded or not
   ansible.builtin.command: mongosh --host mongodb.rachelsigao.online --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
   register: catalogue_output
