@@ -18,11 +18,6 @@
     name: mongodb-mongosh # if you need to connect to a remote MongoDB instance, managing a MongoDB server
     state: present
 
-- name: install mongodb server
-  ansible.builtin.dnf:
-    name: mongodb-org # if you need to run MongoDB and store data
-    state: present    
-
 - name: check products loaded or not
   ansible.builtin.command: mongosh --host mongodb.rachelsigao.online --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
   register: catalogue_output
