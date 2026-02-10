@@ -25,11 +25,15 @@
 - name: print catalogue output
   ansible.builtin.debug:
     msg: "{{ catalogue_output }}"
+  # ignore_errors: true
+  # ignore_unreachable: true
 
 - name: load products
   ansible.builtin.shell: mongosh --host {{ MONGODB_HOST }} < /app/db/master-data.js
   when: catalogue_output.stdout | int < 0
-
+  # ignore_errors: true
+  # ignore_unreachable: true
+  
 - name: systemd setup
   include_role:
     name: common
