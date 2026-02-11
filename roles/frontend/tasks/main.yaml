@@ -34,8 +34,8 @@
   ansible.builtin.unarchive:
     src: /tmp/frontend.zip
     dest: /usr/share/nginx/html
-    extra_opts: [--strip-components=1] # to avoid extra directory while unzipping
-    remote_src: yes # remote_src: yes means files already exist in catalogue server
+    extra_opts:
+      - -j
 
 - name: remove default nginx conf
   ansible.builtin.file:
