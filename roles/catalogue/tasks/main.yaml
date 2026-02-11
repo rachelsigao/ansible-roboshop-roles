@@ -2,7 +2,7 @@
   include_role:
     name: common
     tasks_from: app-setup.yaml
-  
+
 - name: nodejs setup
   include_role:
     name: common
@@ -15,7 +15,7 @@
 
 - name: install mongodb client
   ansible.builtin.dnf:
-    name: mongodb-mongosh # if you need to connect to a remote MongoDB instance, managing a MongoDB server
+    name: mongodb-mongosh
     state: present
 
 - name: check products loaded or not
