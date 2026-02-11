@@ -9,11 +9,13 @@
     tasks_from: nodejs.yaml
 
 - name: copy mongodb repo
+  become: yes
   ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
 - name: install mongodb client
+  become: yes
   ansible.builtin.dnf:
     name: mongodb-mongosh # if you need to connect to a remote MongoDB instance, managing a MongoDB server
     state: present

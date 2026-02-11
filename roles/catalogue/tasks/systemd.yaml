@@ -1,17 +1,17 @@
-- name: copy catalogue service to system directory
-  become: yes
+- name: "Copy catalogue systemd service"
   ansible.builtin.template:
     src: catalogue.service.j2
     dest: /etc/systemd/system/catalogue.service
-
-- name: systemctl daemon reload
   become: yes
+
+- name: "Reload systemd daemon"
   ansible.builtin.systemd:
     daemon_reload: yes
-
-- name: start and enable catalogue
   become: yes
+
+- name: "Start and enable catalogue service"
   ansible.builtin.service:
     name: catalogue
-    state: restarted # even app is not running, we can restart
+    state: restarted
     enabled: yes
+  become: yes
