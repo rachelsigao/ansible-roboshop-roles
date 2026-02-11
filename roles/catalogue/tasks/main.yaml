@@ -36,5 +36,5 @@
 
 - name: systemd setup
   include_role:
-    name: catalogue
+    name: common
     tasks_from: systemd.yaml
