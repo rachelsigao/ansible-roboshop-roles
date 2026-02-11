@@ -1,4 +1,5 @@
 - name: copy catalogue service to system directory
+  become: yes
   ansible.builtin.template:
     src: catalogue.service.j2
     dest: /etc/systemd/system/catalogue.service
