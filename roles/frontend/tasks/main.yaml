@@ -34,8 +34,6 @@
   ansible.builtin.unarchive:
     src: /tmp/frontend.zip
     dest: /usr/share/nginx/html
-    extra_opts:
-      - -j # -j means unzip the content of zip file into the destination folder, without creating a new folder with the name of zip file
 
 - name: remove default nginx conf
   ansible.builtin.file:
