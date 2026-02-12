@@ -1,5 +1,7 @@
 - name: "configure {{ component }}"
   become: yes
   hosts: "{{ component }}"
-  roles: # this will automatically load the roles directory having the same name as component
+  vars_files:
+    - "vault/mysql.yaml"
+  roles:
     - "{{ component }}"
