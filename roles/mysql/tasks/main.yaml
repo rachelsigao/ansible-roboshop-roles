@@ -20,3 +20,5 @@
 - name: setp root password
   ansible.builtin.command: mysql_secure_installation --set-root-pass {{ MYSQL_ROOT_PASSWORD }} 
   # instead of (MYSQL root password) we can give password directly RoboShop@1 but it is not recommended to hardcode password in ansible playbook. So we are using variable here and we will pass the value of variable from ansible playbook which is calling this role.
+
+  
